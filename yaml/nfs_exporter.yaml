@@ -28,6 +28,7 @@ spec:
           - -c
           - /bin/nfs_exporter
           env:
+          - 
           volumeMounts:
           - mountPath: /tmp/nfs
             name: nfs-server-path
