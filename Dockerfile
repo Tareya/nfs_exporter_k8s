@@ -11,10 +11,10 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo "Asia/Shanghai" > /etc/timezone \
 && apk del tzdata
 
-COPY build/nfs_exporter-linux-amd64/nfs_exporter /bin
+COPY build/nfs_exporter_k8s-linux-amd64/nfs_exporter_k8s /bin
 
-RUN chmod +x /bin/nfs_exporter
+RUN chmod +x /bin/nfs_exporter_k8s
 
 EXPOSE 9102
 
-ENTRYPOINT ["/bin/nfs_exporter"]
+ENTRYPOINT ["/bin/nfs_exporter_k8s"]

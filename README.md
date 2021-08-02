@@ -1,10 +1,10 @@
 # nfs_exporter
-NFS exporter for Prometheus.
+A Prometheus NFS exporter for K8S.
 
 ## Installation
 
 ```
-git clone https://github.com/Tareya/nfs_exporter.git 
+git clone https://github.com/Tareya/nfs_exporter_k8s.git 
 
 cd nfs_exporter/
 

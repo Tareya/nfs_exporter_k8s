@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nfs-exporter
-          image: "nfs_exporter:latest"
+          image: "nfs_exporter_k8s:latest"
           imagePullPolicy: Always
           ports:
             - name: http-9102
@@ -26,7 +26,7 @@ spec:
           command:
           - bash
           - -c
-          - /bin/nfs_exporter
+          - /bin/nfs_exporter_k8s
           env:
           - 
           volumeMounts:
