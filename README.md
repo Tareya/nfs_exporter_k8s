@@ -14,7 +14,7 @@ make
 ## Docker build
 
 ```
-docker rmi nfs_exporter:latest 
+docker rmi -f nfs_exporter:latest 
 docker build  -t nfs_exporter --network=host .
 
 ```

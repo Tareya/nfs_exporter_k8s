@@ -7,7 +7,11 @@ RUN apk update \
     && apk add -u coreutils bash \
     && rm -rf /var/lib/apt/lists/*
 
-COPY nfs_exporter /bin
+RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+&& echo "Asia/Shanghai" > /etc/timezone \
+&& apk del tzdata
+
+COPY build/nfs_exporter-linux-amd64/nfs_exporter /bin
 
 RUN chmod +x /bin/nfs_exporter
 
