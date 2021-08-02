@@ -1,4 +1,4 @@
-# nfs_exporter
+# nfs_exporter_k8s
 A Prometheus NFS exporter for K8S.
 
 ## Installation
@@ -6,7 +6,7 @@ A Prometheus NFS exporter for K8S.
 ```
 git clone https://github.com/Tareya/nfs_exporter_k8s.git 
 
-cd nfs_exporter/
+cd nfs_exporter_k8s/
 
 make
 ```
@@ -14,8 +14,8 @@ make
 ## Docker build
 
 ```
-docker rmi -f nfs_exporter:latest 
-docker build  -t nfs_exporter --network=host .
+docker rmi -f nfs_exporter_k8s:latest 
+docker build  -t nfs_exporter_k8s --network=host .
 
 ```
 
@@ -28,7 +28,7 @@ docker build  -t nfs_exporter --network=host .
 kubectl apply -f ./yaml
 ```
 
-## Usage of `nfs_exporter`
+## Usage of `nfs_exporter_k8s`
 
 | Option                    | Default             | Description
 | ------------------------- | ------------------- | -----------------
