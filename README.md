@@ -4,15 +4,24 @@ NFS exporter for Prometheus.
 ## Installation
 
 ```
-git clone https://github.com/Tareya/nfs_exporter.git $GOPATH/src/github.com/Tareya/nfs_exporter
+git clone https://github.com/Tareya/nfs_exporter.git 
 
-cd $GOPATH/src/github.com/Tareya/nfs_exporter/
+cd nfs_exporter/
 
-export CGO_ENABLED=0 && export GO111MODULE=on && export GOPROXY=https://goproxy.cn,direct && go mod tidy && go build .
+make
+```
 
+## Docker build
+
+```
 docker rmi nfs_exporter:latest 
 docker build  -t nfs_exporter --network=host .
 
+```
+
+## k8s usage
+
+```
 # Push the docker image to your registry and change config in yaml folder
 # then deploy nfs exporter to kubernetes
 
