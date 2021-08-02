@@ -2,7 +2,7 @@
 all: release 
 
 deps: ## Get the dependencies
-	GO111MODULE=on GOPROXY=https://goproxy.cn,direct go mod tidy
+	CGO_ENABLED=0 GO111MODULE=on GOPROXY=https://goproxy.cn,direct go mod tidy
 
 clean: ## Remove previous build and release files
 	rm -rf build/*
