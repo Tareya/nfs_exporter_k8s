@@ -8,7 +8,7 @@ metadata:
     k8s-app: nfs-metrics
 subsets:
 - addresses:
-  - ip: 30.23.78.194  # ipaddress same as the url of gluster storageClass
+  - ip: xx.xx.xx.xx  # ipaddress same as the url of gluster storageClass
   ports:
   - name: http-metrics
     port: 31902 # port same as the url of gluster storageClass
