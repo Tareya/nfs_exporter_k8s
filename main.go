@@ -1,16 +1,17 @@
 package main
 
 import (
+	"net/http"
+	"os"
+	"strings"
+	"time"
+
 	"github.com/patrickmn/go-cache"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/prometheus/common/log"
 	"github.com/prometheus/common/version"
 	"gopkg.in/alecthomas/kingpin.v2"
-	"net/http"
-	"os"
-	"strings"
-	"time"
 )
 
 var (
@@ -59,9 +60,11 @@ func (e *Exporter) Collect(ch chan<- prometheus.Metric) {
 		if x, found := dataCache.Get(ip + "volumeInfo"); found {
 			volumeInfo = x.(VolumeInfo)
 		}
+
 		if x, found := dataCache.Get(ip + "volumeDataInfo"); found {
 			volumeDataInfo = x.([]PathInfo)
 		}
+
 		ch <- prometheus.MustNewConstMetric(volumeSize, prometheus.GaugeValue, volumeInfo.size, ip, path)
 		ch <- prometheus.MustNewConstMetric(volumeUsed, prometheus.GaugeValue, volumeInfo.used, ip, path)
 		ch <- prometheus.MustNewConstMetric(volumeAvail, prometheus.GaugeValue, volumeInfo.avail, ip, path)
